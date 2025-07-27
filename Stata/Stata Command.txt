@@ -1,0 +1,51 @@
+// Stata Command
+
+// Load Datasets
+use "filename.dta"
+
+// Compress the file (Change data-types to reduce the space it takes)
+compress
+
+// Compress list of variables
+compress age phone
+
+// Compress string variables
+compress name address, nocoalse
+
+// Stata command from website
+
+type dofile1.do
+
+use auto
+describe
+summarize
+tabulate mpg
+list make price mpg
+
+do dofile1.do
+
+type dofile2.do
+
+set more off
+log using test2, replace
+
+use auto
+describe
+summarize
+tabulate mpg
+list make price mpg
+
+log close
+set more on
+
+// Open new do file editor
+doedit
+
+// Open existing do file in do file editor
+doedit test1.do
+
+// execute the stata commands, but display no output
+run test1.do
+
+// execute and display output
+do test1.do
